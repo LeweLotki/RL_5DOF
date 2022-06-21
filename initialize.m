@@ -18,7 +18,6 @@ actInfo.Name = 'torque';
 blk = [mdl, '/RL Agent'];
 env = rlSimulinkEnv(mdl,blk,obsInfo,actInfo);
 
-% env.ResetFcn = @quadrupedResetFcn; %% write reset func
 env.ResetFcn = @ResetFcn;
 
 createNetwork
