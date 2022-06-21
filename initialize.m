@@ -4,7 +4,7 @@ clc
 
 initManipulatorParameters
 
-mdl = 'v2';
+mdl = 'main';
 open_system(mdl)
 
 numObs = 16;
