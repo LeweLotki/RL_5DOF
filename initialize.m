@@ -5,7 +5,7 @@ clc
 initManipulatorParameters
 
 mdl = 'main';
-open_system(mdl)
+open_system(mdl);
 
 numObs = 16;
 obsInfo = rlNumericSpec([numObs 1]);
@@ -57,7 +57,7 @@ if doTraining
     trainingStats = train(agent,env,trainOpts);
 else
     % Load a pretrained agent for the example.
-    load('ManipulatorAgent.mat','agent')
+%     load('ManipulatorAgent.mat','agent')
 end
 
 rng(0)

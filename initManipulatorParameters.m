@@ -11,6 +11,7 @@ Tf = 10;
 vx_init = 0;
 vy_init = 0;
 
+manipulator_6dof_DataFile
 % % Hip and Knee Joint properties
 % joint.stiffness = 0;
 % joint.damping = 8;
