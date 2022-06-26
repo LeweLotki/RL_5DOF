@@ -46,8 +46,8 @@ trainOpts = rlTrainingOptions(...
     'SaveAgentCriteria','EpisodeReward',... 
     'SaveAgentValue',200);     
 
-trainOpts.UseParallel = true;                    
-trainOpts.ParallelizationOptions.Mode = 'async';
+trainOpts.UseParallel = false;                    
+trainOpts.ParallelizationOptions.Mode = 'sync';
 trainOpts.ParallelizationOptions.StepsUntilDataIsSent = 32;
 trainOpts.ParallelizationOptions.DataToSendFromWorkers = 'Experiences';
 
@@ -55,7 +55,7 @@ doTraining = true;
 if doTraining    
     % Train the agent.
     trainingStats = train(agent,env,trainOpts);
-else
+% else
     % Load a pretrained agent for the example.
 %     load('ManipulatorAgent.mat','agent')
 end
