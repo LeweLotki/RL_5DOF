@@ -5,7 +5,7 @@ g = -9.81;
 Ts = 0.025;  % change to 0.025
 
 % Simulation Time
-Tf = 10;
+Tf = 2;
 
 % model saved as xml
 manipulator_6dof_DataFile
