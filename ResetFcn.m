@@ -18,10 +18,7 @@ function in = ResetFcn(in)
     smiData.RevoluteJoint(5).Rz.Pos = -117.78386196709498;  % deg
     smiData.RevoluteJoint(5).ID = '[czlon6:-:czlon5]';
     
-    smiData.Desire_X = 0;
-    smiData.Desire_Y = 5;
-    smiData.Desire_Z = 20;
+    desire_position = [0, 0, 5, 20];
     
-
-    
+   
 end

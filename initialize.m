@@ -4,10 +4,12 @@ clc
 
 initManipulatorParameters
 
+desire_position = [0, 0, 5, 20];
+
 mdl = 'main';
 open_system(mdl);
 
-numObs = 16;
+numObs = 21;
 obsInfo = rlNumericSpec([numObs 1]);
 obsInfo.Name = 'observations';
 
