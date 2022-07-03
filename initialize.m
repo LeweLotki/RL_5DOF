@@ -4,17 +4,16 @@ clc
 
 initManipulatorParameters
 
-desire_position = [0, 0, 5, 20];
-
+desire_position = [0, -12.4675, 16.2833, 11.7267]; % Z->X Y->Z X->Y
 mdl = 'main';
 open_system(mdl);
 
-numObs = 21;
+numObs = 8;
 obsInfo = rlNumericSpec([numObs 1]);
 obsInfo.Name = 'observations';
 
 numAct = 5;
-actInfo = rlNumericSpec([numAct 1],'LowerLimit',-1,'UpperLimit', 1);
+actInfo = rlNumericSpec([numAct 1],'LowerLimit',-1e2,'UpperLimit', 1e2);
 actInfo.Name = 'torque';
 
 blk = [mdl, '/RL Agent'];
@@ -40,7 +39,7 @@ maxSteps = floor(Tf/Ts);
 trainOpts = rlTrainingOptions(...
     'MaxEpisodes',maxEpisodes,...
     'MaxStepsPerEpisode',maxSteps,...
-    'ScoreAveragingWindowLength',250,...
+    'ScoreAveragingWindowLength',50,...
     'Verbose',true,...
     'Plots','training-progress',...
     'StopTrainingCriteria','AverageReward',...
