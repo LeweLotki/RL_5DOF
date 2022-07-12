@@ -12,8 +12,8 @@ numObs = 8;
 obsInfo = rlNumericSpec([numObs 1]);
 obsInfo.Name = 'observations';
 
-numAct = 5;
-actInfo = rlNumericSpec([numAct 1],'LowerLimit',-1e2,'UpperLimit', 1e2);
+numAct = 4;
+actInfo = rlNumericSpec([numAct 1],'LowerLimit',-1e3,'UpperLimit', 1e3);
 actInfo.Name = 'torque';
 
 blk = [mdl, '/RL Agent'];
@@ -43,9 +43,9 @@ trainOpts = rlTrainingOptions(...
     'Verbose',true,...
     'Plots','training-progress',...
     'StopTrainingCriteria','AverageReward',...
-    'StopTrainingValue',190,...                   
+    'StopTrainingValue',1000,...                   
     'SaveAgentCriteria','EpisodeReward',... 
-    'SaveAgentValue',200);     
+    'SaveAgentValue',1000);     
 
 trainOpts.UseParallel = false;                    
 trainOpts.ParallelizationOptions.Mode = 'sync';
@@ -56,9 +56,9 @@ doTraining = true;
 if doTraining    
     % Train the agent.
     trainingStats = train(agent,env,trainOpts);
-% else
+else
     % Load a pretrained agent for the example.
-%     load('ManipulatorAgent.mat','agent')
+    load('savedAgents\Agent1.mat','agent')
 end
 
 rng(0)

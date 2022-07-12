@@ -1,6 +1,6 @@
 %% CRITIC
 % Create the critic network layers
-criticLayerSizes = [200 100];
+criticLayerSizes = [400 300];
 statePath = [
     featureInputLayer(numObs,'Normalization','none','Name', 'observation')
     fullyConnectedLayer(criticLayerSizes(1), 'Name', 'CriticStateFC1', ... 
@@ -33,7 +33,7 @@ criticNetwork = connectLayers(criticNetwork,'CriticStateFC2','add/in1');
 criticNetwork = connectLayers(criticNetwork,'CriticActionFC1','add/in2');
 
 % Create critic representation
-criticOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-2, ... 
+criticOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-1, ... 
                                         'GradientThreshold',1,'L2RegularizationFactor',2e-4);
 useGPU = false;
 if useGPU
@@ -45,7 +45,7 @@ critic = rlRepresentation(criticNetwork,env.getObservationInfo,env.getActionInfo
 
 %% ACTOR
 % Create the actor network layers
-actorLayerSizes = [200 100];
+actorLayerSizes = [400 300];
 actorNetwork = [
     featureInputLayer(numObs,'Normalization','none','Name','observation')
     fullyConnectedLayer(actorLayerSizes(1), 'Name', 'ActorFC1', ...
@@ -63,7 +63,7 @@ actorNetwork = [
     ];
 
 % Create actor representation
-actorOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-2, ...
+actorOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-1, ...
                                        'GradientThreshold',1,'L2RegularizationFactor',1e-5);
 if useGPU
    actorOptions.UseDevice = 'gpu'; 
