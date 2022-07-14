@@ -43,12 +43,12 @@ trainOpts = rlTrainingOptions(...
     'Verbose',true,...
     'Plots','training-progress',...
     'StopTrainingCriteria','AverageReward',...
-    'StopTrainingValue',1000,...                   
+    'StopTrainingValue',600,...                   
     'SaveAgentCriteria','EpisodeReward',... 
-    'SaveAgentValue',1200);     
+    'SaveAgentValue',800);     
 
-trainOpts.UseParallel = false;                    
-trainOpts.ParallelizationOptions.Mode = 'sync';
+trainOpts.UseParallel = true;                    
+trainOpts.ParallelizationOptions.Mode = 'async';
 trainOpts.ParallelizationOptions.StepsUntilDataIsSent = 32;
 trainOpts.ParallelizationOptions.DataToSendFromWorkers = 'Experiences';
 
@@ -58,7 +58,7 @@ if doTraining
     trainingStats = train(agent,env,trainOpts);
 else
     % Load a pretrained agent for the example.
-    load('savedAgents\Agent.mat','agent')
+    load('savedAgents\Agent499.mat','agent')
 end
 
 rng(0)
