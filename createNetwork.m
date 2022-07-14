@@ -63,7 +63,7 @@ actorNetwork = [
     ];
 
 % Create actor representation
-actorOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-2, ...
+actorOptions = rlRepresentationOptions('Optimizer','adam','LearnRate',1e-3, ...
                                        'GradientThreshold',1,'L2RegularizationFactor',2e-4);
 if useGPU
    actorOptions.UseDevice = 'gpu'; 
