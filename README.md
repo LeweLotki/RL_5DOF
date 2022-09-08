@@ -1,6 +1,6 @@
 # Boosted deep Reinforcement Learning method of planning optimal trajectory for 6 degree of freedom robotic arm
 
-This repository was created to enable research on reinforcemnt learning control systems. 
+This repository was created to enable research on reinforcemnt learning control systems. Results of this reasearch are presented in the file RL_5DOF.pdf, that can be found in this repository.
 
 Reinforcement Learning agent, that would be able to determine opptimal trajectory for robot manpiulators with high amount of degree of freedom has been trained.
 
